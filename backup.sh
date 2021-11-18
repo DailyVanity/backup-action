@@ -122,6 +122,7 @@ if [ ! -z "$INPUT_DB_TYPE" ] && [ "$INPUT_DB_TYPE" != "" ]; then
 
   echo "🔍 Show me backups... 😎"
   ls -lFhS ./$BACKUP_DIR/
+  export BACKUP_FILENAME=$FILENAME
 else
   if [ ! -z "$INPUT_SCRIPT" ] && [ "$INPUT_SCRIPT" != "" ]; then
     echo "Cheers 🍻"
