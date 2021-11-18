@@ -99,6 +99,7 @@ fi
 # Execute SSH Commands to create backups first
 #----------------------------------------
 echo "🏃‍♂️ Running commands over ssh..."
+echo $*
 sh -c "/bin/drone-ssh $*"
 
 #----------------------------------------
