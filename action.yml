@@ -88,7 +88,7 @@ inputs:
     description: 'database port'
   auth_db:
     description: 'authenticationDatabase Required for Mongo DB v4.4.0 - Defaults to admin'
-  args:
+  db_args:
     description: 'additional arguments with backup command if you want to pass'
   dirpath:
     description: 'directory to be backuped'
