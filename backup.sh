@@ -59,7 +59,7 @@ if [ "$INPUT_TYPE" = "db" ]; then
         INPUT_PASS="-p'$INPUT_DB_PASS'"
       fi
 
-      INPUT_SCRIPT="mysqldump -q -u $INPUT_DB_USER -P $INPUT_DB_PORT $INPUT_PASS $INPUT_ARGS $INPUT_DB_NAME | gzip -9 > $FILENAME ${EXTRA_SCRIPT}"
+      INPUT_SCRIPT="mysqldump -q -u $INPUT_DB_USER -P $INPUT_DB_PORT $INPUT_PASS $INPUT_DB_ARGS $INPUT_DB_NAME | gzip -9 > $FILENAME ${EXTRA_SCRIPT}"
     fi
 
     if [ "$INPUT_DB_TYPE" = "mongo" ]; then
@@ -79,7 +79,7 @@ if [ "$INPUT_TYPE" = "db" ]; then
       FILENAME=$INPUT_DB_TYPE-$INPUT_DB_NAME.$THEDATE.pgsql.gz
       INPUT_DB_PORT="${INPUT_DB_PORT:-5432}"
       INPUT_ARGS="${INPUT_ARGS} -C --column-inserts"
-      INPUT_SCRIPT="PGPASSWORD='$INPUT_DB_PASS' pg_dump -U $INPUT_DB_USER -h $INPUT_DB_HOST $INPUT_ARGS $INPUT_DB_NAME | gzip -9 > $FILENAME ${EXTRA_SCRIPT}"
+      INPUT_SCRIPT="PGPASSWORD='$INPUT_DB_PASS' pg_dump -U $INPUT_DB_USER -h $INPUT_DB_HOST $INPUT_DB_ARGS $INPUT_DB_NAME | gzip -9 > $FILENAME ${EXTRA_SCRIPT}"
     fi
 fi
 
