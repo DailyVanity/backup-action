@@ -59,7 +59,7 @@ if [ "$INPUT_TYPE" = "db" ]; then
         INPUT_PASS="-p'$INPUT_DB_PASS'"
       fi
 
-      INPUT_SCRIPT="mysqldump -q -u $INPUT_DB_USER -P $INPUT_DB_PORT $INPUT_PASS $INPUT_DB_ARGS $INPUT_DB_NAME | gzip -9 > $FILENAME ${EXTRA_SCRIPT}"
+      INPUT_SCRIPT="mysqldump -q -u $INPUT_DB_USER -P $INPUT_DB_PORT -h $INPUT_DB_HOST $INPUT_PASS $INPUT_DB_ARGS $INPUT_DB_NAME | gzip -9 > $FILENAME ${EXTRA_SCRIPT}"
     fi
 
     if [ "$INPUT_DB_TYPE" = "mongo" ]; then
